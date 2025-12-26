@@ -1,7 +1,7 @@
-# MCPMocker - A MCP server for AI Development
+# McpMocker - A MCP server for AI Development
 ## Overview
 
-**MCP Mock Server** is a lightweight **Model Context Protocol (MCP) server** designed to help **build, test, and experiment with AI tool integrations**, inspired by [JSONPlaceholder](https://jsonplaceholder.typicode.com/) and [apimocker](https://apimocker.com/) projects.
+**McpMocker** is a lightweight **Model Context Protocol (MCP) server** designed to help **build, test, and experiment with AI tool integrations**, inspired by [JSONPlaceholder](https://jsonplaceholder.typicode.com/) and [apimocker](https://apimocker.com/) projects.
 
 ---
 
@@ -38,4 +38,4 @@ This project is **not designed for production use**.
 
 ## License
 
-MIT - Use this as inspiration for your own MCP servers.
+MIT - Use this as inspiration for your own MCP servers 🙂
