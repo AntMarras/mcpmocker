@@ -1,0 +1,181 @@
+[10]:
+  - id: 0
+    name: Liam Anderson
+    username: Landers
+    email: liam.anderson@acme.io
+    address:
+      street: Maple Avenue
+      suite: Apt. 101
+      city: Springfield
+      zipcode: 12345-6789
+      geo:
+        lat: "-36.7783"
+        lng: "119.4179"
+    phone: 1-555-201-3344
+    website: liam.dev
+    company:
+      name: Acme Solutions
+      catchPhrase: Scalable human-centered platforms
+      bs: optimize digital ecosystems
+  - id: 1
+    name: Sofia Martinez
+    username: smartinez
+    email: sofia@martinez.co
+    address:
+      street: Oak Ridge
+      suite: Suite 210
+      city: Rivertown
+      zipcode: 54321-1122
+      geo:
+        lat: "-40.7128"
+        lng: "-74.0060"
+    phone: 555-0199 x332
+    website: sofiam.net
+    company:
+      name: BluePeak Corp
+      catchPhrase: Next-generation workflow alignment
+      bs: streamline scalable infrastructures
+  - id: 2
+    name: Noah Patel
+    username: npatel
+    email: noah.patel@zenmail.com
+    address:
+      street: Sunset Boulevard
+      suite: Suite 88
+      city: Lakewood
+      zipcode: 60606-7788
+      geo:
+        lat: "-33.8688"
+        lng: "151.2093"
+    phone: 1-404-555-7788
+    website: noahp.io
+    company:
+      name: Zenith Labs
+      catchPhrase: Intuitive bifurcated interfaces
+      bs: enable strategic growth paths
+  - id: 3
+    name: Emma Johansson
+    username: emma.j
+    email: emma@northsea.org
+    address:
+      street: Harbor Way
+      suite: Apt. 44B
+      city: Portsville
+      zipcode: 88901-4421
+      geo:
+        lat: "28.5383"
+        lng: "-81.3792"
+    phone: 555-773-1200
+    website: emmaj.dev
+    company:
+      name: Nordic Systems
+      catchPhrase: Reliability through modular design
+      bs: deliver fault-tolerant services
+  - id: 4
+    name: Daniel Kim
+    username: dkim
+    email: daniel.kim@orbit.ai
+    address:
+      street: Cedar Lane
+      suite: Suite 500
+      city: Clearwater
+      zipcode: "77889"
+      geo:
+        lat: "-27.4698"
+        lng: "153.0251"
+    phone: (312)555-9090
+    website: orbitkim.com
+    company:
+      name: Orbit AI
+      catchPhrase: Data-driven adaptive intelligence
+      bs: redefine automated decisioning
+  - id: 5
+    name: Isabella Rossi
+    username: irossi
+    email: isabella@rossi.it
+    address:
+      street: Via Milano
+      suite: Apt. 12
+      city: Florence
+      zipcode: 50123-0099
+      geo:
+        lat: "43.7696"
+        lng: "11.2558"
+    phone: 39-055-778899
+    website: rossi.design
+    company:
+      name: Rossi Creative
+      catchPhrase: Elegant solutions for complex ideas
+      bs: bridge design and technology
+  - id: 6
+    name: Ethan Walker
+    username: ethanw
+    email: ethan.walker@field.io
+    address:
+      street: Pine Crest
+      suite: Suite 310
+      city: Meadowview
+      zipcode: 44012-3001
+      geo:
+        lat: "35.2271"
+        lng: "-80.8431"
+    phone: 704.555.4433
+    website: walkerfield.io
+    company:
+      name: FieldWorks
+      catchPhrase: Agile collaboration at scale
+      bs: empower distributed teams
+  - id: 7
+    name: Maya Singh
+    username: mayasingh
+    email: maya@singh.dev
+    address:
+      street: Lotus Drive
+      suite: Suite 700
+      city: New Harmony
+      zipcode: "99001"
+      geo:
+        lat: "-12.0464"
+        lng: "-77.0428"
+    phone: 555-888-1212 x77
+    website: mayasingh.dev
+    company:
+      name: Harmony Tech
+      catchPhrase: Balanced systems for modern teams
+      bs: scale sustainable platforms
+  - id: 8
+    name: Oliver Bennett
+    username: obennett
+    email: oliver@bennett.co
+    address:
+      street: King Street
+      suite: Suite 22
+      city: Westford
+      zipcode: 66778-2211
+      geo:
+        lat: "51.5074"
+        lng: "-0.1278"
+    phone: (020)555-3322
+    website: bennett.co
+    company:
+      name: Bennett & Co
+      catchPhrase: Precision-driven consulting
+      bs: align strategy with execution
+  - id: 9
+    name: Ava Dubois
+    username: avad
+    email: ava.dubois@lumen.fr
+    address:
+      street: Rue Lafayette
+      suite: Suite 14
+      city: Montreuil
+      zipcode: 93100-4410
+      geo:
+        lat: "48.8566"
+        lng: "2.3522"
+    phone: 33-1-44-55-6677
+    website: lumen.fr
+    company:
+      name: Lumen Group
+      catchPhrase: Clarity through innovation
+      bs: illuminate digital transformation

@@ -1,7 +1,13 @@
 # McpMocker - A MCP server for AI Development
 ## Overview
 
-**McpMocker** is a lightweight **Model Context Protocol (MCP) server** designed to help **build, test, and experiment with AI tool integrations**, inspired by [JSONPlaceholder](https://jsonplaceholder.typicode.com/) and [apimocker](https://apimocker.com/) projects.
+**McpMocker** is a lightweight **Model Context Protocol (MCP) server** designed to help build, test, and experiment with AI tool integrations, inspired by [JSONPlaceholder](https://jsonplaceholder.typicode.com/) and [apimocker](https://apimocker.com/) projects.
+
+---
+
+## Design Decisions
+
+* LLM tokens cost money so McpMocker uses [TOON Token-Oriented Object Notation](https://github.com/toon-format/toon) format to minimize tokens and still be human-readable.
 
 ---
 
@@ -20,7 +26,7 @@ The MCP server will start locally with stdio transport.
 ---
 
 ## Usage with stdio transport
-The `docs/` folder contains [messages.jsonl](docs/messages.jsonl), a [JSONL](https://jsonlines.org/) file with example messages. These can be pasted into the console as standard input for manual server interaction via stdio transport.
+The `docs/` folder contains [messages.jsonl](docs/messages.jsonl), a [JSONL](https://jsonlines.org/) file with example messages. These can be copy/pasted into your console as standard input for manual server interaction via stdio transport.
 
 ---
 
