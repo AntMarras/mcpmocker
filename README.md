@@ -7,7 +7,7 @@
 
 ## Design Decisions
 
-* LLM tokens cost money so McpMocker uses [TOON Token-Oriented Object Notation](https://github.com/toon-format/toon) format to minimize tokens and still be human-readable.
+* LLM tokens cost money, so McpMocker uses [TOON (Token-Oriented Object Notation)](https://github.com/toon-format/toon) to minimize token usage while remaining human-readable.
 
 ---
 
