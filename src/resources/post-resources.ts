@@ -9,8 +9,9 @@ const posts = (
   })
 ).default;
 
+export const baseUri: string = 'resource://posts';
+
 export const registerPostResources = (server: McpServer) => {
-  const baseUri: string = 'resource://posts';
   const idTemplate: string = `${baseUri}/{id}`;
 
   const resourceIdSchema = z.coerce
