@@ -2,15 +2,15 @@ import { McpServer, ResourceTemplate } from '@modelcontextprotocol/sdk/server/mc
 import { encode } from '@toon-format/toon';
 import * as z from 'zod';
 
-/* user ID = [1,10] */
-const users = (
-  await import('../../data/users.json', {
+/* post ID = [1,100] */
+const posts = (
+  await import('../../data/posts.json', {
     with: { type: 'json' },
   })
 ).default;
 
-export const registerUserResources = (server: McpServer) => {
-  const baseUri: string = 'resource://users';
+export const registerPostResources = (server: McpServer) => {
+  const baseUri: string = 'resource://posts';
   const idTemplate: string = `${baseUri}/{id}`;
 
   const resourceIdSchema = z.coerce
@@ -20,15 +20,15 @@ export const registerUserResources = (server: McpServer) => {
     .refine((val) => Number.isSafeInteger(val), { message: 'Resource ID exceeds safe integer range' });
 
   server.registerResource(
-    'users',
+    'posts',
     new ResourceTemplate(idTemplate, {
       // will populate the JSONRPC requests for 'resources/list' messages
       list: () => {
         // ID = index + 1
-        const resources = users.map((user, index) => {
+        const resources = posts.map((post, index) => {
           return {
-            name: `User Profile: ${user.name} - user ID: ${index + 1}`,
-            description: `Complete user profile for ${user.name}`,
+            name: `Post with ID: ${index + 1}`,
+            description: `Title: ${post.title}`,
             uri: `${baseUri}/${index + 1}`,
           };
         });
@@ -38,8 +38,8 @@ export const registerUserResources = (server: McpServer) => {
       },
     }),
     {
-      title: 'User Resource',
-      description: 'Exposes user data via a resource template, resolving a user by numeric ID.',
+      title: 'Post Resource',
+      description: 'Exposes post data via a resource template, resolving a post by numeric ID.',
       mimeType: 'text/plain',
     },
     async (uri, variables, _extra) => {
@@ -47,15 +47,15 @@ export const registerUserResources = (server: McpServer) => {
       if (!result.success) throw new Error(`Invalid id format: ${result.error.message}`);
 
       // index = ID - 1
-      const user = users[result.data - 1];
-      if (!user) throw new Error(`Unknown user ID ${result.data}`);
+      const post = posts[result.data - 1];
+      if (!post) throw new Error(`Unknown post ID ${result.data}`);
 
       return {
         contents: [
           {
             uri: uri.href,
             mimeType: 'plain/text', // [TODO] 'text/toon' when TOON will be official
-            text: encode(user),
+            text: encode(post),
           },
         ],
       };

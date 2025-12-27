@@ -9,3 +9,4 @@
 {"jsonrpc":"2.0","id":1,"method":"resources/list"}
 {"jsonrpc":"2.0","id":2,"method":"resources/templates/list"}
 {"jsonrpc":"2.0","id":3,"method":"resources/read","params":{"uri":"resource://users/5"}}
+{"jsonrpc":"2.0","id":4,"method":"resources/read","params":{"uri":"resource://posts/31"}}
