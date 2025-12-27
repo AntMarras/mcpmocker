@@ -1,8 +1,9 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import * as z from 'zod';
 import { baseUri as posts_baseUri } from '../resources/post-resources.js';
+import { name as comments_per_view } from '../tools/comments-per-view.js';
 
-export const registerPostEngagementReport = (server: McpServer) => {
+export const registerPostEngagementReportPrompt = (server: McpServer) => {
   const promptArgSchema = {
     postId: z.coerce
       .number()
@@ -13,7 +14,7 @@ export const registerPostEngagementReport = (server: McpServer) => {
   };
 
   server.registerPrompt(
-    'post-engagement-report',
+    'post_engagement_report',
     {
       title: 'Analyze Post Engagement',
       description: "A prompot to analyze a user's posts and its comments and generate an engegement report",
@@ -38,7 +39,7 @@ First, load the resource "${posts_baseUri}/${postId}" to get the post details.
 Use "get_post_comments" tool to fetch all comments on post with ID ${postId}
 
 **Step 3: Calculate engagement metrics (comments per view estimate)**
-Use "comments-per-view" tool
+Use "${comments_per_view}" tool for an accurate calculation.
 
 **Step 4: Provide a Social Engagement report**
 Finally produce a comprehensive report:

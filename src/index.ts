@@ -2,7 +2,8 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { registerUserResources } from './resources/user-resources.js';
 import { registerPostResources } from './resources/post-resources.js';
-import { registerPostEngagementReport } from './prompts/post-engagement-report.js';
+import { registerPostEngagementReportPrompt } from './prompts/post-engagement-report.js';
+import { registerCommentsPerViewTool } from './tools/comments-per-view.js';
 
 const mcpServer = new McpServer({
   name: 'mcpmocker',
@@ -14,7 +15,10 @@ registerUserResources(mcpServer);
 registerPostResources(mcpServer);
 
 // Register prompts
-registerPostEngagementReport(mcpServer);
+registerPostEngagementReportPrompt(mcpServer);
+
+// Tools
+registerCommentsPerViewTool(mcpServer);
 
 async function main() {
   const transport = new StdioServerTransport();
