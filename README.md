@@ -34,7 +34,35 @@ The MCP server will start locally with stdio transport.
 
 ## Usage with stdio transport
 
-The `docs/` folder contains [messages.jsonl](docs/messages.jsonl), a [JSONL](https://jsonlines.org/) file with example messages. These can be copy/pasted into your console as standard input for manual server interaction via stdio transport.
+The `docs/` folder contains [messages.jsonl](docs/messages.jsonl), a [JSONL](https://jsonlines.org/) file with example MCP messages.
+
+You can:
+
+* Copy individual lines from this file
+* Paste them directly into your terminal
+* Use them as standard input when manually interacting with the server over STDIO
+
+This is useful for testing, debugging, or understanding the expected message formats.
+
+### Running the Server with MCP Inspector
+
+You can start the server using the [MCP Inspector](https://github.com/modelcontextprotocol/inspector), which provides a convenient UI for interacting with MCP servers.
+Run:
+```bash
+npm run inspector
+```
+Then configure the Inspector with the following settings:
+
+* **Transport Type:** `STDIO`
+* **Command:** `node`
+* **Arguments:** `dist/index.js`
+
+### Editor and Tooling Configuration
+
+The repository includes example configuration files for common tools:
+
+* `.vscode/` - Visual Studio Code configuration for connecting to the server
+* `.gemini/` - configuration for Gemini-compatible tooling
 
 ---
 
