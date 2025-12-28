@@ -1,4 +1,4 @@
-comments[1000]{postId,id,name,email,body}:
+[1000]{postId,id,name,email,body}:
   1,1,Alice Brown,alice.brown@example.com,I ran into issues following these steps.
   1,2,Mark Wilson,mark.wilson@example.com,This could be improved with examples.
   1,3,Sofia Lee,sofia.lee@example.com,I like the overall direction here.

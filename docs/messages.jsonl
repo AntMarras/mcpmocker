@@ -18,3 +18,4 @@
 // Tools
 {"jsonrpc":"2.0","id":1,"method":"tools/list"}
 {"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"comments_per_view","arguments":{"comments":10, "views":2}}}
+{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"get_post_comments","arguments":{"postId":5}}}

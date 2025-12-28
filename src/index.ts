@@ -4,6 +4,7 @@ import { registerUserResources } from './resources/user-resources.js';
 import { registerPostResources } from './resources/post-resources.js';
 import { registerPostEngagementReportPrompt } from './prompts/post-engagement-report.js';
 import { registerCommentsPerViewTool } from './tools/comments-per-view.js';
+import { registerGetPostCommentsTool } from './tools/get-post-comments.js';
 
 const mcpServer = new McpServer({
   name: 'mcpmocker',
@@ -19,6 +20,7 @@ registerPostEngagementReportPrompt(mcpServer);
 
 // Tools
 registerCommentsPerViewTool(mcpServer);
+registerGetPostCommentsTool(mcpServer);
 
 async function main() {
   const transport = new StdioServerTransport();

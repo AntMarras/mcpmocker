@@ -97,7 +97,7 @@ if (!fs.existsSync(outputDir)) {
 }
 
 const outputPath = path.join(outputDir, 'comments.json');
-fs.writeFileSync(outputPath, JSON.stringify({ comments }, null, 2), 'utf-8');
+fs.writeFileSync(outputPath, JSON.stringify(comments , null, 2), 'utf-8');
 
 console.log(`✅ Generated ${comments.length} comments`);
 console.log(`📄 Saved to ${outputPath}`);
