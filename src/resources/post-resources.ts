@@ -18,7 +18,7 @@ export const registerPostResources = (server: McpServer) => {
     .number()
     .int()
     .positive()
-    .refine((val) => Number.isSafeInteger(val), { message: 'Resource ID exceeds safe integer range' });
+    .max(100)
 
   server.registerResource(
     'posts',

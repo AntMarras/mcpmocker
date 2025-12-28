@@ -10,7 +10,7 @@ export const registerPostEngagementReportPrompt = (server: McpServer) => {
       .number()
       .int()
       .positive()
-      .refine((val) => Number.isSafeInteger(val), { message: 'post ID exceeds safe integer range' })
+      .max(100)
       .describe('Post ID to analyze'),
   };
 

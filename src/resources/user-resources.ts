@@ -17,7 +17,7 @@ export const registerUserResources = (server: McpServer) => {
     .number()
     .int()
     .positive()
-    .refine((val) => Number.isSafeInteger(val), { message: 'Resource ID exceeds safe integer range' });
+    .max(10)
 
   server.registerResource(
     'users',
