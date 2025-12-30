@@ -3,22 +3,14 @@ import { encode } from '@toon-format/toon';
 import * as z from 'zod';
 
 /* post ID = [1,100] */
-const posts = (
-  await import('../../data/posts.json', {
-    with: { type: 'json' },
-  })
-).default;
+import {default as posts} from '#data/posts.json' with {type:'json'}
 
 export const baseUri: string = 'resource://posts';
 
 export const registerPostResources = (server: McpServer) => {
   const idTemplate: string = `${baseUri}/{id}`;
 
-  const resourceIdSchema = z.coerce
-    .number()
-    .int()
-    .positive()
-    .max(100)
+  const resourceIdSchema = z.coerce.number().int().positive().max(100);
 
   server.registerResource(
     'posts',

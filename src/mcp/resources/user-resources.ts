@@ -3,11 +3,7 @@ import { encode } from '@toon-format/toon';
 import * as z from 'zod';
 
 /* user ID = [1,10] */
-const users = (
-  await import('../../data/users.json', {
-    with: { type: 'json' },
-  })
-).default;
+import {default as users} from '#data/users.json' with {type:'json'}
 
 export const registerUserResources = (server: McpServer) => {
   const baseUri: string = 'resource://users';

@@ -6,7 +6,8 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'node:url';
+import { log } from 'node:console';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -99,5 +100,5 @@ if (!fs.existsSync(outputDir)) {
 const outputPath = path.join(outputDir, 'comments.json');
 fs.writeFileSync(outputPath, JSON.stringify(comments , null, 2), 'utf-8');
 
-console.log(`✅ Generated ${comments.length} comments`);
-console.log(`📄 Saved to ${outputPath}`);
+log(`✅ Generated ${comments.length} comments`);
+log(`📄 Saved to ${outputPath}`);

@@ -3,11 +3,7 @@ import * as z from 'zod';
 import { encode } from '@toon-format/toon';
 
 /* postId = [1,100]; id = [1,1000] */
-const comments = (
-  await import('../../data/comments.json', {
-    with: { type: 'json' },
-  })
-).default;
+import {default as comments} from '#data/comments.json' with {type:'json'}
 
 export const name = 'get_post_comments';
 

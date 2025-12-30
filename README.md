@@ -27,10 +27,12 @@ git clone git@github.com:AntMarras/mcpmocker.git
 cd mcpmocker
 npm install
 npm run build
-npm run start
+npm run start -- stdio
 ```
 
 The MCP server will start locally with stdio transport.
+
+For Streamable HTTP transport (served by Express app) use `npm run start -- http` instead.
 
 ---
 

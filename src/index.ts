@@ -1,33 +1,24 @@
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { registerUserResources } from './resources/user-resources.js';
-import { registerPostResources } from './resources/post-resources.js';
-import { registerPostEngagementReportPrompt } from './prompts/post-engagement-report.js';
-import { registerCommentsPerViewTool } from './tools/comments-per-view.js';
-import { registerGetPostCommentsTool } from './tools/get-post-comments.js';
-
-const mcpServer = new McpServer({
-  name: 'mcpmocker',
-  version: '0.0.1',
-});
-
-// Register resources
-registerUserResources(mcpServer);
-registerPostResources(mcpServer);
-
-// Register prompts
-registerPostEngagementReportPrompt(mcpServer);
-
-// Tools
-registerCommentsPerViewTool(mcpServer);
-registerGetPostCommentsTool(mcpServer);
+import { argv, exit } from 'node:process';
+import { error } from 'node:console';
+import pkg from '../package.json' with {type: 'json'}
 
 async function main() {
-  const transport = new StdioServerTransport();
-  mcpServer.connect(transport);
+  switch (argv[2]) {
+    case 'stdio':
+      await import('./stdio/index.js')
+      break;
+    case 'http':
+      await import('./streamableHttp/server.js')
+      break;
+    default:
+    error(`McpMocker server v${pkg.version}`)
+    error('Usage: node ./index.js [ stdio | http ]')
+  error()
+
+  }
 }
 
-main().catch((error) => {
-  console.error('Server error: ', error);
-  process.exit(1);
+main().catch((e) => {
+  error('Script error: ', e);
+  exit(1);
 });
