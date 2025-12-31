@@ -8,9 +8,13 @@ import { createMcpExpressApp } from '@modelcontextprotocol/sdk/server/express.js
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const port = env.PORT || 3000;
 
-/* Express app with DNS rebinding protection */
-const app = createMcpExpressApp();
-app.use(express.json({ limit: '10mb' }));
+/** 
+ * Express app with DNS rebinding protection
+ * [TODO] monitor the issue I opened 
+ * https://github.com/modelcontextprotocol/typescript-sdk/issues/1354
+ * to patch the json bodyparser limit
+ */
+const app = createMcpExpressApp({ limit: '10mb' });
 app.use(express.static('public'));
 
 app.get('/health', (_req, res) =>

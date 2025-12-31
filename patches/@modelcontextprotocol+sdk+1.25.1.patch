@@ -1,0 +1,29 @@
+diff --git a/node_modules/@modelcontextprotocol/sdk/dist/esm/server/express.d.ts b/node_modules/@modelcontextprotocol/sdk/dist/esm/server/express.d.ts
+index 7746e82..824b80f 100644
+--- a/node_modules/@modelcontextprotocol/sdk/dist/esm/server/express.d.ts
++++ b/node_modules/@modelcontextprotocol/sdk/dist/esm/server/express.d.ts
+@@ -17,6 +17,8 @@ export interface CreateMcpExpressAppOptions {
+      * to restrict which hostnames are allowed.
+      */
+     allowedHosts?: string[];
++    /** Controls the maximum request body size. */
++    limit?: string;
+ }
+ /**
+  * Creates an Express application pre-configured for MCP servers.
+diff --git a/node_modules/@modelcontextprotocol/sdk/dist/esm/server/express.js b/node_modules/@modelcontextprotocol/sdk/dist/esm/server/express.js
+index a23a57b..0ad4703 100644
+--- a/node_modules/@modelcontextprotocol/sdk/dist/esm/server/express.js
++++ b/node_modules/@modelcontextprotocol/sdk/dist/esm/server/express.js
+@@ -24,9 +24,9 @@ import { hostHeaderValidation, localhostHostValidation } from './middleware/host
+  * ```
+  */
+ export function createMcpExpressApp(options = {}) {
+-    const { host = '127.0.0.1', allowedHosts } = options;
++    const { host = '127.0.0.1', allowedHosts, limit } = options;
+     const app = express();
+-    app.use(express.json());
++    limit ? app.use(express.json({ limit })) : app.use(express.json());
+     // If allowedHosts is explicitly provided, use that for validation
+     if (allowedHosts) {
+         app.use(hostHeaderValidation(allowedHosts));
