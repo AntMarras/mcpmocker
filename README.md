@@ -1,6 +1,9 @@
 # McpMocker - A MCP server for AI Development
 
-⚠️ Early development. This project is in an eary phase and under active development.
+⚠️ Early development ⚠️
+
+This project is in an early stage and under active development.
+You can check the [roadmap](docs/roadmap.md) to get an idea of the upcoming features.
 
 ## Overview
 
