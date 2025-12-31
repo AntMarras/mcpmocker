@@ -43,5 +43,6 @@ process.on('SIGTERM', async () => {
 app.listen(port, () => {
   log(`🚀 McpMocker server running on port ${port}`);
   log(`🌐 Main page: http://localhost:${port}/`);
+  log(`🤖 MCP endpoint: http://localhost:${port}/mcp`);
   log(`📊 Health check: http://localhost:${port}/health`);
 });
