@@ -3,6 +3,7 @@
 ⚠️ Early development ⚠️
 
 This project is in an early stage and under active development.
+
 You can check the [roadmap](docs/roadmap.md) to get an idea of the upcoming features.
 
 ## Overview
@@ -35,7 +36,7 @@ npm run start -- stdio
 
 The MCP server will start locally with stdio transport.
 
-For Streamable HTTP transport (served by Express app) use `npm run start -- http` instead.
+For Stateless Streamable HTTP transport (served by Express app) use `npm run start -- http` instead.
 
 ---
 
@@ -58,11 +59,17 @@ Run:
 ```bash
 npm run inspector
 ```
-Then configure the Inspector with the following settings:
+For the stdio transport configure the Inspector with the following settings:
 
 * **Transport Type:** `STDIO`
 * **Command:** `node`
 * **Arguments:** `dist/index.js`
+
+For the Streamable HTTP transport running in `localhost` configure the Inspector with the following settings:
+
+* **Transport Type:** `Streamable HTTP`
+* **URL:** `[<your url>](http://localhost:3000/mcp)`
+* **Connection Type:** `Via Proxy`
 
 ### Editor and Tooling Configuration
 

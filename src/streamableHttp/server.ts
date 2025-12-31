@@ -4,13 +4,14 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import express from 'express';
 import { createMcpExpressApp } from '@modelcontextprotocol/sdk/server/express.js';
+import { mcpRouter } from './routers/mcp.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const port = env.PORT || 3000;
 
-/** 
+/**
  * Express app with DNS rebinding protection
- * [TODO] monitor the issue I opened 
+ * [TODO] monitor the issue I opened
  * https://github.com/modelcontextprotocol/typescript-sdk/issues/1354
  * to patch the json bodyparser limit
  */
@@ -26,6 +27,8 @@ app.get('/health', (_req, res) =>
 );
 
 app.get('/', (_req, res) => res.sendFile(join(__dirname, 'public', 'index.html')));
+
+app.use('/', mcpRouter);
 
 process.on('SIGINT', async () => {
   log('SIGINT received (Ctrl+C), shutting down...');
