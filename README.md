@@ -4,7 +4,8 @@
 
 This project is in an early stage and under active development.
 
-You can check the [roadmap](docs/roadmap.md) to get an idea of the upcoming features.
+You can check the [roadmap](docs/roadmap.md) to get an idea of the upcoming features. 
+You are free to open features requests.
 
 ## Overview
 
@@ -21,6 +22,29 @@ LLM tokens cost money, so McpMocker uses [TOON (Token-Oriented Object Notation)]
 ### Deterministic Data Generation
 
 [Data generation](docs/data.md) for large datasets (such as comments) is deterministic and reproducible, so all data is generated via script.
+
+### AI Workflow Point of View
+
+Prompts act as an AI workflow that guides the user through a structured data analysis process. 
+
+**Example user interaction flow:**
+
+1. User types: `/post_engagement_report`
+2. System prompts: "Enter postId (1–100):"
+3. User enters: "5"
+4. System sends the pre-formatted prompt to the AI
+5. AI executes the workflow using the available tools
+
+Prompts define the strategy, while **tools** provide the execution capabilities and can be used to retrieve and aggregate metrics. Finally, **resources** represent the data the analysis runs on.
+
+### Data Structure
+
+The data model is hierarchical. A user has multiple posts, and each post can contain multiple comments.
+<pre>
+  users
+  └─ posts
+    └─ comments
+</pre>
 
 ---
 
@@ -95,3 +119,7 @@ This project is **not designed for production use**.
 ## License
 
 MIT - Use this as inspiration for your own MCP servers 🙂
+
+---
+
+**Built by Alchaest** • Available for MCP server consulting • [hire@alchaest.com](mailto:hire@alchaest.com)

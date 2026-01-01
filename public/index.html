@@ -3,9 +3,150 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="https://?????.com/" />
+    <link rel="stylesheet" href="style.css" />
     <title>McpMocker</title>
   </head>
   <body>
-    <h2>McpMocker</h2>
+    <div class="container">
+      <a
+        href="https://github.com/AntMarras/mcpmocker"
+        class="github-icon"
+        aria-label="View source on GitHub"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg width="28" height="28" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+          ></path>
+        </svg>
+      </a>
+
+      <div class="container">
+        <header class="header">
+          <h1>MCP Mocker</h1>
+          <p>A fake Model Context Protocol (MCP) server for AI development</p>
+        </header>
+
+        <section class="section">
+          <div class="stats">
+            <div class="stat">
+              <h3>User Resources</h3>
+              <p>10</p>
+            </div>
+            <div class="stat">
+              <h3>Post Resources</h3>
+              <p>100</p>
+            </div>
+            <div class="stat">
+              <h3>Comments</h3>
+              <p>1000</p>
+            </div>
+            <div class="stat">
+              <h3>Prompts</h3>
+              <p>1</p>
+            </div>
+            <div class="stat">
+              <h3>Tools</h3>
+              <p>2</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Features</h2>
+
+          <div class="stats">
+            <div class="stat">
+              <h3>Token Efficiency</h3>
+              <p>Token usage minimization while remaining human-readable by TOON</p>
+            </div>
+            <div class="stat">
+              <h3>Deterministic Data</h3>
+              <p>Data generation is deterministic and reproducible</p>
+            </div>
+            <div class="stat">
+              <h3>MCP protocol</h3>
+              <p>Support for latest protocol version <code>2025-11-25</code></p>
+            </div>
+            <div class="stat">
+              <h3>Transport</h3>
+              <p>Streamable HTTP in Stateless mode</p>
+            </div>
+            <div class="stat">
+              <h3>Validation</h3>
+              <p>Extensive input schema validation</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Try it</h2>
+          <p>MCP is available at: <code>https://?????.com/mcp</code></p>
+          <p>
+            For <code>stdio</code> or local development see complete instructions in
+            <a href="https://github.com/AntMarras/mcpmocker" target="_blank">GitHub</a>
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>System Philosophy</h2>
+          
+          <h3>Prompt as an AI Workflow</h3>
+          <p>
+            The <code>/post_engagement_report</code> prompt acts as an AI workflow that guides the user through a
+            structured data analysis process.
+          </p>
+          <p>User interaction flow:</p>
+          <pre>
+            1. User types: /post_engagement_report
+            2. System prompts: "Enter postId (1-100):"
+            3. User enters: "5"
+            4. System sends the pre-formatted prompt to the AI
+            5. AI executes using available tools</pre
+          >
+
+          <h3>Tools</h3>
+          <p>
+            Prompts define the strategy, while tools provide the execution capabilities. The following tools are used to
+            retrieve and aggregate comment-related metrics:
+          </p>
+          <pre>
+          <code>get_post_comments</code>
+          <code>comments_per_view</code>
+          </pre>
+
+          <h3>Resource Templates</h3>
+          <p>
+            Resources are the data the analysis runs on. URI-style templates are used to
+            reference specific resources by their unique identifiers.
+          </p>
+          <pre>
+          <code>resource://users/{id}</code>
+          <code>resource://posts/{id}</code>
+          </pre>
+
+          <h3>Data Structure</h3>
+          <p>The data model is hierarchical. A user has multiple posts, and each post can contain multiple comments.</p>
+          <pre>
+            users
+            └─ posts
+              └─ comments
+          </pre>
+        </section>
+
+        <section class="section">
+          <h2>⚠️ Early development</h2>
+          <p>This project is in an early stage and under active development. Feature requests are welcome!</p>
+        </section>
+      </div>
+
+      <footer>
+        Built by <a href="https://github.com/AntMarras" target="_blank">Alchaest</a>. Hire me at
+        <a href="mailto:hire@alchaest.com">hire@alchaest.com</a>
+        or support this project by becoming a sponsor.
+      </footer>
+    </div>
   </body>
 </html>
