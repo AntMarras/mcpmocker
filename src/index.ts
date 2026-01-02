@@ -1,20 +1,19 @@
 import { argv, exit } from 'node:process';
 import { error } from 'node:console';
-import pkg from '../package.json' with {type: 'json'}
+import pkg from '../package.json' with { type: 'json' };
 
 async function main() {
   switch (argv[2]) {
     case 'stdio':
-      await import('./stdio/index.js')
+      await import('./stdio/index.js');
       break;
     case 'http':
-      await import('./streamableHttp/server.js')
+      await import('./streamableHttp/server.js');
       break;
     default:
-    error(`McpMocker server v${pkg.version}`)
-    error('Usage: node ./index.js [ stdio | http ]')
-  error()
-
+      error(`McpMocker server v${pkg.version}`);
+      error('Usage: node ./index.js [ stdio | http ]');
+      error();
   }
 }
 

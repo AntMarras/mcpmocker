@@ -1,4 +1,4 @@
-import pkg from '../../package.json' with {type: 'json'}
+import pkg from '../../package.json' with { type: 'json' };
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { registerUserResources } from './resources/user-resources.js';
 import { registerPostResources } from './resources/post-resources.js';
