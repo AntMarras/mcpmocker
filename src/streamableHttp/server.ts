@@ -3,7 +3,11 @@ import { env, uptime, exit } from 'node:process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import express from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
 import { createMcpExpressApp } from '@modelcontextprotocol/sdk/server/express.js';
+import { rateLimiter } from './middleware/rate-limiter.js';
+import { errorHandler } from './middleware/error-handler.js';
 import { mcpRouter } from './routers/mcp.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -16,8 +20,18 @@ const port = env.PORT || 3000;
  * to patch the json bodyparser limit
  */
 const app = createMcpExpressApp({ limit: '10mb' });
-app.use(express.static('public'));
+app.set('trust proxy', 1);
 
+app.use(helmet());
+app.use(
+  cors({
+    methods: 'GET,POST,DELETE',
+    exposedHeaders: ['mcp-protocol-version'],
+  })
+);
+app.use(rateLimiter);
+
+app.use(express.static('public'));
 app.get('/health', (_req, res) =>
   res.json({
     status: 'OK',
@@ -25,24 +39,36 @@ app.get('/health', (_req, res) =>
     uptime: Math.floor(uptime()),
   })
 );
-
 app.get('/', (_req, res) => res.sendFile(join(__dirname, 'public', 'index.html')));
-
 app.use('/', mcpRouter);
 
-process.on('SIGINT', async () => {
-  log('SIGINT received (Ctrl+C), shutting down...');
-  exit(0);
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    error: `${req.method} ${req.originalUrl} not found`,
+  });
 });
+app.use(errorHandler);
 
-process.on('SIGTERM', async () => {
-  log('SIGTERM received, shutting down gracefully...');
-  exit(0);
-});
-
-app.listen(port, () => {
+const server = app.listen(port, () => {
   log(`🚀 McpMocker server running on port ${port}`);
   log(`🌐 Main page: http://localhost:${port}/`);
   log(`🤖 MCP endpoint: http://localhost:${port}/mcp`);
   log(`📊 Health check: http://localhost:${port}/health`);
+});
+
+process.on('SIGINT', async () => {
+  log('SIGINT received (Ctrl+C), shutting down...');
+  server.close(() => {
+    log('Express server closed');
+    exit(0);
+  });
+});
+
+process.on('SIGTERM', async () => {
+  log('SIGTERM received, shutting down gracefully...');
+  server.close(() => {
+    log('Express server closed');
+    exit(0);
+  });
 });
