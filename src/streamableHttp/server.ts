@@ -1,4 +1,4 @@
-import { log } from 'node:console';
+import { error, log } from 'node:console';
 import { env, uptime, exit } from 'node:process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -42,12 +42,12 @@ app.get('/health', (_req, res) =>
 app.get('/', (_req, res) => res.sendFile(join(__dirname, 'public', 'index.html')));
 app.use('/', mcpRouter);
 
-app.use((req, res) => {
+app.use((req, res) =>
   res.status(404).json({
     success: false,
     error: `${req.method} ${req.originalUrl} not found`,
-  });
-});
+  })
+);
 app.use(errorHandler);
 
 const server = app.listen(port, () => {
@@ -57,18 +57,26 @@ const server = app.listen(port, () => {
   log(`📊 Health check: http://localhost:${port}/health`);
 });
 
-process.on('SIGINT', async () => {
+server.on('error', (err) => error('Server failure:', err));
+
+process.on('SIGINT', () => {
   log('SIGINT received (Ctrl+C), shutting down...');
   server.close(() => {
     log('Express server closed');
     exit(0);
   });
+  // close keep-alive connections
+  // after server.close to avoid race conditions
+  server.closeAllConnections();
 });
 
-process.on('SIGTERM', async () => {
+process.on('SIGTERM', () => {
   log('SIGTERM received, shutting down gracefully...');
   server.close(() => {
     log('Express server closed');
     exit(0);
   });
+  // close keep-alive connections
+  // after server.close to avoid race conditions
+  server.closeAllConnections();
 });
