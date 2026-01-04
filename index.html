@@ -3,7 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" href="https://?????.com/" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://antmarras.github.io/mcpmocker/" />
+
+    <!-- Primary Meta Tags -->
+    <title>MCP Mocker | Free Fake MCP Server for AI Development</title>
+    <meta name="title" content="MCP Mocker | Free Fake MCP Server for AI Development" />
+    <meta
+      name="description"
+      content="MCP Mocker is a lightweight fake Model Context Protocol (MCP) server for AI development and testing. Inspired by JSONPlaceholder and ApiMocker, with deterministic data and efficient token usage."
+    />
+    <meta
+      name="keywords"
+      content="MCP mock server, fake MCP, Model Context Protocol, AI development, testing, mock data, deterministic data, MCP tools, streamable HTTP, stdio transport"
+    />
+    <meta name="author" content="MCP Mocker" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://antmarras.github.io/mcpmocker/" />
+    <meta property="og:title" content="MCP Mocker | Free Fake MCP Server for AI Development" />
+    <meta
+      property="og:description"
+      content="A lightweight fake MCP server for AI development and testing. Includes mock resources with deterministic reproducible data and protocol support."
+    />
+    <meta property="og:image" content="https://antmarras.github.io/mcpmocker/public/preview.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://antmarras.github.io/mcpmocker/" />
+    <meta property="twitter:title" content="MCP Mocker | Free Fake MCP Server for AI Development" />
+    <meta
+      property="twitter:description"
+      content="A lightweight fake MCP server for AI development and testing. Includes mock resources with deterministic reproducible data and protocol support."
+    />
+    <meta property="twitter:image" content="https://antmarras.github.io/mcpmocker/public/preview.png" />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#4A90E2" />
+    <meta name="msapplication-TileColor" content="#4A90E2" />
+    <meta name="application-name" content="MCP Mocker" />
+    <meta name="apple-mobile-web-app-title" content="MCP Mocker" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "MCP Mocker",
+        "description": "MCP Mocker is a lightweight mock server for the Model Context Protocol designed to help build, test, and experiment with AI tool integrations. Inspired by JSONPlaceholder and ApiMocker projects.",
+        "url": "https://antmarras.github.io/mcpmocker/",
+        "applicationCategory": "DeveloperTool",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Lightweight MCP mock server",
+          "Deterministic data generation",
+          "Streamable HTTP transport support",
+          "Standard I/O (stdio) development mode",
+          "Hierarchical mock resources",
+          "Efficient token usage with TOON format",
+          "Schema validation",
+          "AI workflow prompt support"
+        ],
+        "author": {
+          "@type": "Organization",
+          "name": "MCP Mocker"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "MCP Mocker"
+        }
+      }
+    </script>
+
     <link rel="stylesheet" href="public/style.css" />
     <title>McpMocker</title>
   </head>
@@ -91,7 +172,7 @@
 
         <section class="section">
           <h2>System Philosophy</h2>
-          
+
           <h3>Prompt as an AI Workflow</h3>
           <p>
             The <code>/post_engagement_report</code> prompt acts as an AI workflow that guides the user through a
@@ -118,8 +199,8 @@
 
           <h3>Resource Templates</h3>
           <p>
-            Resources are the data the analysis runs on. URI-style templates are used to
-            reference specific resources by their unique identifiers.
+            Resources are the data the analysis runs on. URI-style templates are used to reference specific resources by
+            their unique identifiers.
           </p>
           <pre>
           <code>resource://users/{id}</code>
