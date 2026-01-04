@@ -1,6 +1,6 @@
 import { error, log } from 'node:console';
 import { env, uptime, exit } from 'node:process';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import express from 'express';
 import helmet from 'helmet';
@@ -10,7 +10,9 @@ import { rateLimiter } from './middleware/rate-limiter.js';
 import { errorHandler } from './middleware/error-handler.js';
 import { mcpRouter } from './routers/mcp.js';
 
+// run as dist/streamableHttp/server.js
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const projectRoot = resolve(__dirname, '../..');
 const port = env.PORT || 3000;
 
 /**
@@ -31,7 +33,7 @@ app.use(
 );
 app.use(rateLimiter);
 
-app.use(express.static('public'));
+app.use('/public', express.static('public'));
 app.get('/health', (_req, res) =>
   res.json({
     status: 'OK',
@@ -39,7 +41,7 @@ app.get('/health', (_req, res) =>
     uptime: Math.floor(uptime()),
   })
 );
-app.get('/', (_req, res) => res.sendFile(join(__dirname, 'index.html')));
+app.get('/', (_req, res) => res.sendFile(join(projectRoot, 'index.html')));
 app.use('/', mcpRouter);
 
 app.use((req, res) =>
