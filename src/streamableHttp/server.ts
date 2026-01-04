@@ -39,7 +39,7 @@ app.get('/health', (_req, res) =>
     uptime: Math.floor(uptime()),
   })
 );
-app.get('/', (_req, res) => res.sendFile(join(__dirname, 'public', 'index.html')));
+app.get('/', (_req, res) => res.sendFile(join(__dirname, 'index.html')));
 app.use('/', mcpRouter);
 
 app.use((req, res) =>
