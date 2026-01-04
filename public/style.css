@@ -35,6 +35,14 @@ a {
   padding: 2rem;
 }
 
+.container-internal {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 2rem;
+  border-radius: 5px;
+  background-color: rgb(244, 254, 235);
+}
+
 .header {
   text-align: center;
   margin-bottom: 2rem;
@@ -43,6 +51,7 @@ a {
 .section {
   margin-bottom: 2rem;
   padding-bottom: 0;
+  border-bottom: 1px solid #eee;
 }
 
 .section h2{
@@ -67,4 +76,7 @@ a {
 
 .stat {
   text-align: center;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding-bottom: 1rem;
 }
